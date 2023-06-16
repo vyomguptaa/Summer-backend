@@ -18,10 +18,10 @@ const {mongoose} = require('./mongo-connection')
 
 app.set('trust proxy', 1)
 
-// app.use((req, res, next) => {
-//    res.header('Access-Control-Allow-Origin', '*')
-//    next()
-// })
+app.use((req, res, next) => {
+   res.header('Access-Control-Allow-Origin', 'https://summer-frontend.vercel.app/')
+   next()
+})
 const corsOptions ={
     origin:'https://summer-frontend.vercel.app/', 
     credentials:true,            //access-control-allow-credentials:true
