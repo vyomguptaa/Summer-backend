@@ -23,7 +23,7 @@ app.set('trust proxy', 1)
 //    next()
 // })
 const corsOptions ={
-    origin:'*', 
+    origin:'https://summer-frontend.vercel.app/', 
     credentials:true,            //access-control-allow-credentials:true
     optionSuccessStatus:200,
  }
