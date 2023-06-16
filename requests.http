@@ -1,0 +1,104 @@
+
+POST http://localhost:3000/users/register HTTP/1.1
+content-type: application/json
+
+{"name": "Dogukan Batal", "email": "hi@dogu.dev", "password":"123456", "confirmPassword":"123456", "handle":"dogudev" }
+
+###
+
+# authenticate a user
+POST http://localhost:3000/users/login HTTP/1.1
+content-type: application/json
+
+{ "email": "hi@dogu.dev", "password":"123456"}
+
+###
+
+# logout a user
+GET http://localhost:3000/users/logout HTTP/1.1
+
+###
+
+# check logged in 
+GET http://localhost:3000/users/login HTTP/1.1
+
+###
+
+# follow a user
+GET http://localhost:3000/users/62d19fa8cedf1f8122207de1/follow HTTP/1.1
+
+###
+
+# unfollow a user
+GET http://localhost:3000/users/62cd5ff064c58db028b1d160/unfollow HTTP/1.1
+
+
+###############################################
+
+# get all tweets
+GET http://localhost:3000/tweets HTTP/1.1
+
+###
+
+# get a tweet
+GET http://localhost:3000/tweets/62cc944a4155c1c28a9df1a5 HTTP/1.1
+
+###
+
+# create a new tweet
+POST http://localhost:3000/tweets/new HTTP/1.1
+content-type: application/json
+
+{"content": "It is a test tweet."}
+
+###
+
+# remove a tweet
+DELETE http://localhost:3000/tweets/62cc652975266e7236b64eda HTTP/1.1
+
+###
+
+# like a tweet
+PATCH http://localhost:3000/tweets/62d1dc4517e02d5ebc285c1d/like HTTP/1.1
+
+
+###
+
+# unlike a tweet
+PATCH http://localhost:3000/tweets/62d19f67cedf1f8122207dd0/unlike HTTP/1.1
+   
+###
+
+# retweet
+PATCH http://localhost:3000/tweets/62dfcd50f09e59c39ecc8249/retweet HTTP/1.1
+content-type: application/json
+
+{"content":"It is a test retweet."}
+
+###
+
+# unretweet
+PATCH http://localhost:3000/tweets/62dfcd50f09e59c39ecc8249/unretweet HTTP/1.1
+
+
+      // async socialLogin() {
+      //    try {
+      //       const auth = getAuth()
+      //       const provider = new GoogleAuthProvider()
+      //       const result = await signInWithPopup(auth, provider)
+      //       // store name, handle, email, password, confirmPassword in infoMessage
+      //       const response = await this.register({
+      //          name: result.user.displayName,
+      //          handle: result.user.displayName,
+      //          email: result.user.email,
+      //          password: result.user.uid,
+      //          confirmPassword: result.user.uid,
+      //       })
+      //       this.infoMessage = response.data.message
+      //       setTimeout(async () => {
+      //          await this.$router.push('/')
+      //       }, 1200)
+      //    } catch (error) {
+      //       this.errorMessage = error.response.data
+      //    }
+      // },
